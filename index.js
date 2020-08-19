@@ -90,15 +90,24 @@ Parameters:
 function getAverageGoals(data) {
 
 //    const reducer = (total, currentValue) => total + currentValue;
-    const homeGoals = fifaData.reduce(function(sum, goals){
-        return sum + goals.amount
+   
+    const homeGoals = data.reduce(function(sum, goals){
+        return (sum + goals['Home Team Goals'])/data.length
     }, 0);
-    // return homeGoals
+  
 
-   }
+    const awayGoals = data.reduce(function(sum, goals){
+        return (sum + goals['Away Team Goals'])/data.length
+    }, 0);
+    return `Avarage Home Team Goals: ${homeGoals} Average Away Team Goals: ${awayGoals}`
 
 
-console.log(homeGoals)
+
+
+}
+
+
+console.log(getAverageGoals(fifaData))
 // (getAverageGoals(homeGoals(fifaData)));
 
 /// STRETCH 🥅 //
